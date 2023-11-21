@@ -1,9 +1,9 @@
 package com.example.christmaspresents.readers;
 
-import com.example.christmaspresents.dto.PresentsRequest;
+import com.example.christmaspresents.dto.Request;
 
 import java.io.IOException;
 
 public interface Reader {
-    PresentsRequest read(String fileName) throws IOException;
+    Request read(String fileName) throws IOException;
 }

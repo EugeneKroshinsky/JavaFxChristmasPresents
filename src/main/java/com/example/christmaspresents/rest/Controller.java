@@ -1,8 +1,8 @@
 package com.example.christmaspresents.rest;
 
 import com.example.christmaspresents.dto.Present;
-import com.example.christmaspresents.dto.PresentsRequest;
-import com.example.christmaspresents.dto.PresentsProducer;
+import com.example.christmaspresents.dto.Request;
+import com.example.christmaspresents.dto.Producer;
 import com.example.christmaspresents.model.Model;
 import com.example.christmaspresents.readers.TextFileReader;
 import javafx.collections.FXCollections;
@@ -32,14 +32,15 @@ public class Controller implements Initializable {
     @FXML
     public void buttonOnClick(ActionEvent actionEvent) {
         Present product = (Present)productComboBox.getValue();
-        priceLabel.setText(product.getPrice() + "");
+        double coef = checkBox.isSelected() ? 0.95 : 1;
+        priceLabel.setText((product.getPrice() * coef) + "");
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             reader = new TextFileReader();
-            PresentsRequest request = reader.read("input.txt");
-            ObservableList<PresentsProducer> optionsProducer = FXCollections.observableArrayList(
+            Request request = reader.read("input.txt");
+            ObservableList<Producer> optionsProducer = FXCollections.observableArrayList(
                     request.getProducers()
             );
             producerComboBox.setItems(optionsProducer);
@@ -49,7 +50,7 @@ public class Controller implements Initializable {
     }
     @FXML
     public void onProducerComboBoxClicked(ActionEvent actionEvent){
-        PresentsProducer producer = (PresentsProducer)producerComboBox.getValue();
+        Producer producer = (Producer)producerComboBox.getValue();
         ObservableList<Present> optionsProducer = FXCollections.observableArrayList(
                 producer.getPresents()
         );

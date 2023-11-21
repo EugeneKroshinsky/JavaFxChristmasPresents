@@ -5,29 +5,29 @@ import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-public class PresentsRequest {
-    private List<PresentsProducer> producers;
+public class Request {
+    private List<Producer> producers;
 
-    public PresentsRequest() {
+    public Request() {
         producers = new ArrayList<>();
     }
 
-    public PresentsRequest(List<PresentsProducer> producers) {
+    public Request(List<Producer> producers) {
         this.producers = producers;
     }
 
-    public List<PresentsProducer> getProducers() {
+    public List<Producer> getProducers() {
         return producers;
     }
 
-    public void setProducers(List<PresentsProducer> producers) {
+    public void setProducers(List<Producer> producers) {
         this.producers = producers;
     }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PresentsRequest that = (PresentsRequest) o;
+        Request that = (Request) o;
         return Objects.equals(producers, that.producers);
     }
 
@@ -38,7 +38,7 @@ public class PresentsRequest {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", PresentsRequest.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", Request.class.getSimpleName() + "[", "]")
                 .add("producers=" + producers)
                 .toString();
     }

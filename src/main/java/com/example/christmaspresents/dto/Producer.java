@@ -3,18 +3,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class PresentsProducer {
+public class Producer {
     private String name;
     private List<Present> presents;
 
-    public PresentsProducer() {
+    public Producer() {
         presents = new ArrayList<>();
     }
-    public PresentsProducer(String name) {
+    public Producer(String name) {
         this.name = name;
         this.presents = new ArrayList<>();
     }
-
+    public Producer(String name, List<Present> presents) {
+        this.name = name;
+        this.presents = presents;
+    }
     public String getName() {
         return name;
     }
@@ -35,7 +38,7 @@ public class PresentsProducer {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PresentsProducer that = (PresentsProducer) o;
+        Producer that = (Producer) o;
         return Objects.equals(name, that.name) && Objects.equals(presents, that.presents);
     }
 
