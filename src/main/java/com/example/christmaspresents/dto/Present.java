@@ -1,11 +1,9 @@
 package com.example.christmaspresents.dto;
 
 import java.util.Objects;
-
 public class Present {
     private String name;
     private int price;
-
     public Present() {
     }
 

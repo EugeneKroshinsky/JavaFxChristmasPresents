@@ -1,4 +1,4 @@
-2
+3
 Lego
 2
 Castle
@@ -13,3 +13,9 @@ Bookinist
 15
 "Dogs and cats"
 5
+Komunarka
+2
+Medved
+10
+Zajchik
+15

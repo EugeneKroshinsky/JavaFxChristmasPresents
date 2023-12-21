@@ -4,7 +4,9 @@ import com.example.christmaspresents.dto.Present;
 import com.example.christmaspresents.dto.Request;
 import com.example.christmaspresents.dto.Producer;
 import com.example.christmaspresents.model.Model;
+import com.example.christmaspresents.database.DataBaseService;
 import com.example.christmaspresents.readers.TextFileReader;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,7 +19,6 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 public class Controller implements Initializable {
     private TextFileReader reader;
     private Model model;
@@ -50,6 +51,8 @@ public class Controller implements Initializable {
     }
     @FXML
     public void onProducerComboBoxClicked(ActionEvent actionEvent){
+        DataBaseService dataBaseService = new DataBaseService();
+        dataBaseService.createRequest();
         Producer producer = (Producer)producerComboBox.getValue();
         ObservableList<Present> optionsProducer = FXCollections.observableArrayList(
                 producer.getPresents()

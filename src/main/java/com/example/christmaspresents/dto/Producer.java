@@ -2,7 +2,6 @@ package com.example.christmaspresents.dto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 public class Producer {
     private String name;
     private List<Present> presents;

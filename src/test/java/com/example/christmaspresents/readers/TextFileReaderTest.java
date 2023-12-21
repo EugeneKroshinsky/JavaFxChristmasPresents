@@ -1,4 +1,4 @@
-package com.example.christmaspresents;
+package com.example.christmaspresents.readers;
 
 import com.example.christmaspresents.dto.Present;
 import com.example.christmaspresents.dto.Producer;
@@ -29,12 +29,19 @@ class TextFileReaderTest {
                         new Present("\"Dogs and cats\"", 5)
                 )
         );
-        Request expectedResult = new Request(List.of(lego, bookinist));
+        Producer komunarka = new Producer(
+                "Komunarka",
+                List.of(new Present("Medved", 10),
+                        new Present("Zajchik", 15)
+                )
+        );
+        Request expectedResult = new Request(List.of(lego, bookinist, komunarka));
         request = reader.read("input.txt");
 
-        Assertions.assertEquals(request.getProducers().size(), 2);
+        Assertions.assertEquals(request.getProducers().size(), 3);
         Assertions.assertEquals(request.getProducers().get(0).getPresents().size(), 2);
         Assertions.assertEquals(request.getProducers().get(1).getPresents().size(), 3);
+        Assertions.assertEquals(request.getProducers().get(2).getPresents().size(), 2);
         Assertions.assertEquals(request, expectedResult);
     }
 }

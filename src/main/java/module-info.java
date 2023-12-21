@@ -1,6 +1,7 @@
 module com.example.christmaspresents {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
     requires com.dlsc.formsfx;
 
